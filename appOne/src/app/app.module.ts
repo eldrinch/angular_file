@@ -1,12 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { C1Component } from './c1/c1.component';
 import { C2Component } from './c2/c2.component';
 import { CounterComponent } from './counter/counter.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { FormsModule } from '@angular/forms';
+import { DirEstrComponent } from './dir-estr/dir-estr.component';
 
 @NgModule({
   declarations: [
@@ -14,10 +13,12 @@ import { FormsModule } from '@angular/forms';
     C1Component,
     C2Component,
     CounterComponent,
-    TodoListComponent,
+    DirEstrComponent
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [
+    BrowserModule
+  ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

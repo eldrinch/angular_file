@@ -1,7 +1,10 @@
+<!-- uso de ngIf para aparecer quando tem vencedor -->
 <p *ngIf="!winner">jogador Atual: {{ currentPlayer }}</p>
+
 <p *ngIf="winner">Vencedor: {{ winner }}</p>
 
 <p><button (click)="reset()">Reiniciar Partida</button></p>
+
 <table>
   <tr *ngFor="let row of [0, 1, 2]">
     <td *ngFor="let col of [0, 1, 2]" (click)="processPlay(row, col)">
@@ -11,3 +14,21 @@
 </table>
 
 <div>Produção: {{ producao }}</div>
+
+<!-- <table>
+  <tr>
+    <td>{{board[0][0]}}</td>
+    <td>{{board[0][1}}</td>
+    <td>{{board[0][2]}}</td>
+  </tr>
+  <tr>
+    <td>{{board[1][0]}}</td>
+    <td>{{board[1][1]}}</td>
+    <td>{{board[1][2]}}</td>
+  </tr>
+  <tr>
+    <td>{{board[2][0]}}</td>
+    <td>{{board[2][1]}}</td>
+    <td>{{board[2][2]}}</td>
+  </tr>
+</table> -->

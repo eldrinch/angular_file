@@ -1,0 +1,27 @@
+<h3>Aplicando a diretiva estrutural *ngIf</h3>
+<button (click)="toggleShow()">Exibir/Ocultar</button>
+<div *ngIf="exibir">Este elemento sera exibido/ocultado</div>
+
+<h3>Aplicando a diretiva estrutural *ngFor</h3>
+<!-- exemplo de repetiçao -->
+<div>
+  <input #inputDescription type="text" placeholder="Descriçaõ da tarefa" />
+  <!-- capturando com o click -->
+  <button (click)="addTask(inputDescription.value)">Adicionar a tarefa</button>
+</div>
+
+<table>
+  <tr *ngFor="let task of tasks; let i = index">
+    <ng-container *ngIf="!task.done">
+      <td><input type="checkbox" [checked]="task.done" /></td>
+      <td>{{ task.description }}</td>
+      <td><button (click)="deleteTask(i)">Excluir</button></td>
+    </ng-container>
+  </tr>
+</table>
+
+<div [ngSwitch]="tasks.length">
+  <div *ngSwitchCase="0">Nenhuma Tarefa</div>
+  <div *ngSwitchCase="1">Uma tarefa</div>
+  <div *ngSwitchDefault>{{ tasks.length }} tarefas</div>
+</div>

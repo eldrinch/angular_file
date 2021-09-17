@@ -1,0 +1,17 @@
+<h2>Exemplo Data Bind</h2>
+<p>
+  Sou o componente counter minha tag dentro do app.component.html é app-counter
+</p>
+<p>Titulo: {{ titulo }}</p>
+
+<h2>Adicionando um valor</h2>
+<!-- Recurso de interpolacao -->
+<p>Contador {{ valor }}</p>
+
+<p>Aqui estamos usando o Event bind</p>
+<!-- pporperty binding [] disable, expressao angular "valor" -->
+<button [disabled]="valor >= 10" (click)="increment()">Incrementar</button>
+<p>
+  Propert Bind in elementos HTML podemos desbilitar quado o contador chegue a
+  10, atrelar a propiedade do elemento HTML a um propiedade de nosso componente
+</p>

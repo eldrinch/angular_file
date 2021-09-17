@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-counter',
+  selector: 'counter',
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css'],
 })
 export class CounterComponent {
-  titulo: string = 'Contador';
-  valor: number = 0;
+  titulo = 'CONTADOR';
+  valor = 0;
   //definindo um metodo
   increment() {
     this.valor++;
