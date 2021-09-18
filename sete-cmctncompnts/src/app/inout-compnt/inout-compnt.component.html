@@ -1,1 +1,11 @@
-<p>inout-compnt works!</p>
+<!-- {{ rating }} -->
+<!-- adicionando os icones do material design -->
+<!-- <span class="material-icons">star </span> -->
+<!-- usando para poder usar uma escala de estrelas 
+<span class="material-icons">star_outline</span>-->
+<span
+  *ngFor="let i of [1, 2, 3, 4, 5]"
+  class="rating material-icons"
+  (click)="onClick(i)"
+  >{{ rating >= i ? "star" : "star_outline" }}
+</span>

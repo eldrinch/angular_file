@@ -8,6 +8,8 @@ import { TodoItem } from './todoItem';
 })
 export class DirEstrComponent {
   exibir: boolean = true;
+  text: string = '';
+  newTask: string = '';
 
   toggleShow() {
     //invirtindo o valor que estava anteriormente com  a negação
@@ -21,9 +23,11 @@ export class DirEstrComponent {
     { description: 'Fazer o trabalho pratico do bootcamp', done: true },
   ];
   //adicionando tarefa
-  addTask(description: string) {
+  //  addTask(description: string) {
+  addTask() {
     this.tasks.push({
-      description: description,
+      //description: description
+      description: this.newTask,
       done: false,
     });
   }

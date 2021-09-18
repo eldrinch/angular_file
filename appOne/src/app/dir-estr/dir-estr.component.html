@@ -5,18 +5,25 @@
 <h3>Aplicando a diretiva estrutural *ngFor</h3>
 <!-- exemplo de repetiçao -->
 <div>
-  <input #inputDescription type="text" placeholder="Descriçaõ da tarefa" />
+  <!-- <input #inputDescription type="text" placeholder="Descriçaõ da tarefa" /> -->
+  <input type="text" placeholder="Descriçaõ da tarefa" [(ngModel)]="newTask" />
+
   <!-- capturando com o click -->
-  <button (click)="addTask(inputDescription.value)">Adicionar a tarefa</button>
+  <!-- <button (click)="addTask(inputDescription.value)">Adicionar a tarefa</button> -->
+  <button (click)="addTask()">Adicionar a tarefa</button>
 </div>
 
 <table>
   <tr *ngFor="let task of tasks; let i = index">
-    <ng-container *ngIf="!task.done">
-      <td><input type="checkbox" [checked]="task.done" /></td>
-      <td>{{ task.description }}</td>
-      <td><button (click)="deleteTask(i)">Excluir</button></td>
-    </ng-container>
+    <!-- <ng-container *ngIf="!task.done"> -->
+    <!-- <td><input type="checkbox" [checked]="task.done" (input)="task.done = $event.target.checked"/></td> -->
+    <td>
+      <input type="checkbox" [(ngModel)]="task.done" />
+    </td>
+
+    <td>{{ task.description }}</td>
+    <td><button (click)="deleteTask(i)">Excluir</button></td>
+    <!-- </ng-container> -->
   </tr>
 </table>
 
@@ -25,3 +32,8 @@
   <div *ngSwitchCase="1">Uma tarefa</div>
   <div *ngSwitchDefault>{{ tasks.length }} tarefas</div>
 </div>
+
+<div>{{ tasks[0].done }}</div>
+
+<input type="text" [(ngModel)]="text" />
+<div>{{ text }}</div>
