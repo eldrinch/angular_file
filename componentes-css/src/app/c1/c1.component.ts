@@ -7,4 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class C1Component {
   className: string = 'box box2';
+
+  boxSize: number = 80;
 }
