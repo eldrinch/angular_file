@@ -7,9 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ciclo-vida';
-
+//array dos ids dos componentes que foram criados
   ids: number[] = [];
+//ultimo id que eu gerei, 
   lastId: number = 0;
+  
   label: string = '';
 
   delete(id: number) {

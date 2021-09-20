@@ -6,9 +6,11 @@
 
  
 <label *ngFor="let opcao of opcoes">
+  <!-- propiedade [checked] define se ele ta selecionado ou nao si é doferente de -1-->
+  <!-- propiedade [disable] HTML que consigue desabilitar evitando para ser alterado, de acordo com o numero de opçoes que podem ser selecionados -->
   <input [type]="escolhaAte > 1 ? 'checkbox' : 'radio' " 
-  [checked]="opcoesSelecionadas.indexOf(opcao) !== -1"
   (change)="seleciona(opcao)"
+  [checked]="opcoesSelecionadas.indexOf(opcao) !== -1"
   [disabled]="estaDesabilitado(opcao)" />{{ opcao }}
 </label>
 

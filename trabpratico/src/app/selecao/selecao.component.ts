@@ -9,11 +9,11 @@ export class SelecaoComponent  {
   @Input()
   titulo: string = "";
   @Input()
-  opcoes: string[] = [];
+  opcoes: string[] = []; // opcoes:Array<string>[]=[]
   @Input()
   escolhaAte: number = 1;
-//estado interno do componente
-opcoesSelecionadas: string[] = [];
+  //estado interno do componente, para poder armazenar o que é selecionado
+  opcoesSelecionadas: string[] = [];
 
 
   constructor() {}

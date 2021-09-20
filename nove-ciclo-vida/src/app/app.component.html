@@ -1,0 +1,20 @@
+<header>
+<h3>Ciclo de vida de componentes</h3>
+<p>Aqui adiciona um componente e no Inspect aparace a da 2s </p>
+<p>Quando delete o componente, tenho que tira setInterval do refresh</p>
+</header>
+
+<div>
+<button (click)="add()">Adicionar</button>
+  <div *ngFor="let id of ids">
+    <app-refresh [id]="id"></app-refresh>
+    <button (click)="delete(id)">X</button>
+  </div>
+</div>
+
+
+<h3>ng OnChanges</h3>
+
+<div>Label: <input [(ngModel)]="label" /></div>
+<app-counter [label]="label" [max]="10"></app-counter>
+
