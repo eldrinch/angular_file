@@ -4,10 +4,10 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { CepPipe } from "./cep.pipe";
 
-import { registerLocaleData } from "@angular/common";
-import localePt from "@angular/common/locales/pt";
 import { CpfPipe } from './cpf.pipe';
 import { JoinStringsPipe } from './join-strings.pipe';
+import { registerLocaleData } from "@angular/common";
+import localePt from "@angular/common/locales/pt";
 registerLocaleData(localePt);
 
 @NgModule({
