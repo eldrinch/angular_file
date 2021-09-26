@@ -7,12 +7,13 @@ import { Exercise } from '../exercise';
   styleUrls: ['./timer.component.css'],
 })
 export class TimerComponent implements OnInit, OnDestroy {
+  
   @Input() exercises: Exercise[] = [];
 
-  currentExe: number;
-  currentRep: number;
-  phase: number;
-  timeLeft: number;
+  currentExe: number = 0;
+  currentRep: number = 0
+  phase: number = 0;
+  timeLeft: number = 0;
   interval!: NodeJS.Timeout;
 
   ngOnInit(): void {
@@ -91,11 +92,11 @@ export class TimerComponent implements OnInit, OnDestroy {
     const ex = this.exercises[this.currentExe];
     switch (this.phase) {
       case 0:
-        return ex.preparation*10;
+        return ex.preparation * 10;
       case 1:
-        return ex.duration*10;
+        return ex.duration * 10;
       case 2:
-        return ex.rest*10;
+        return ex.rest * 10;
     }
   }
 }

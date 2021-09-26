@@ -1,0 +1,25 @@
+<p>config works!</p>
+<div>Exercicio <input [(ngModel)]="exercise.name"/>  </div>
+<div>Duração <input type="number" [(ngModel)]="exercise.duration"/>  </div>
+<div>Preparaçã <input  type="number" [(ngModel)]="exercise.repetitions"/>  </div>
+<div>Descanso <input type="number" [(ngModel)]="exercise.preparation"/>  </div>
+<div>Repetições <input type="number" [(ngModel)]="exercise.rest"/>  </div>
+<button (click)="add()">Adicionar</button>
+
+<table>
+  <tr>
+    <th>Exercicio</th>
+    <th>Duração</th>
+    <th>Repetições</th>
+    <th>Preparaçã</th>
+    <th>Descanso</th>
+  </tr>
+  <tr *ngFor="let e of exercises; let i = index">
+    <th>{{e.name}}</th>s
+    <th>{{e.duration}}</th>
+    <th>{{e.repetitions}}</th>
+    <th>{{e.preparation}}</th>
+    <th>{{e.rest}}</th>
+    <td><button (click)="delete(i)" >x</button></td>
+  </tr>
+</table>
