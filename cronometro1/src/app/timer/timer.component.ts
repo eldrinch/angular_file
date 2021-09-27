@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { Exercise } from '../exercise';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { TimerService } from '../timer.service';
 
 @Component({
   selector: 'app-timer',
@@ -7,26 +7,16 @@ import { Exercise } from '../exercise';
   styleUrls: ['./timer.component.css'],
 })
 export class TimerComponent implements OnInit, OnDestroy {
-  
-  @Input() exercises: Exercise[] = [];
-
-  currentExe: number = 0;
-  currentRep: number = 0
-  phase: number = 0;
-  timeLeft: number = 0;
   interval!: NodeJS.Timeout;
 
+  // criado o servico vamos a criar um construtor, e colocar publico para poder usar dentro do template
+  constructor(public ts: TimerService) {}
+
   ngOnInit(): void {
-    this.restart();
+    this.ts.restart();
   }
 
-  restart() {
-    this.currentExe = 0;
-    this.currentRep = 0;
-    this.phase = 0;
-    const ex = this.exercises[this.currentExe];
-    this.timeLeft = this.getTimeOfCurrentPhase();
-  }
+  //A função restart(),  next(), getTimeOfCurrentPhase() foi transferida para o serviço
 
   formatPhase(phase: number) {
     switch (phase) {
@@ -39,18 +29,26 @@ export class TimerComponent implements OnInit, OnDestroy {
     }
   }
 
-  formatTimeLeft(time: number) {
-    return (time / 10).toString();
-  }
+  //(1)retiramos a função e agora usamos o pipe para formatar diretamente no html
+  // formatTimeLeft(time: number) {
+  //   return (time / 10).toString();
+  // }
 
   start() {
     if (!this.interval) {
+      let lastTime = Date.now();
       this.interval = setInterval(() => {
-        if (this.timeLeft > 0) {
-          this.timeLeft--;
-        } else {
-          this.next();
-        }
+        //vamos transportar esta logica para o serviço
+        // if (this.ts.timeLeft > 0) {
+        //   this.ts.timeLeft--;
+        // } else {
+        //   this.next();
+        // }
+      let currentTime = Date.now();
+      let ellapsedTime = currentTime - lastTime;
+      lastTime =currentTime;
+
+        this.ts.decrementTimeLeft(ellapsedTime);
       }, 100);
     }
   }
@@ -67,36 +65,12 @@ export class TimerComponent implements OnInit, OnDestroy {
     throw new Error('Method not implemented.');
   }
 
-  next() {
-    if (this.phase < 2) {
-      this.phase++;
-    } else {
-      const ex = this.exercises[this.currentExe];
-      if (this.currentRep < ex.repetitions - 1) {
-        this.currentRep++;
-        this.phase = 1;
-      } else {
-        if (this.currentExe < this.exercises.length - 1) {
-          this.currentExe++;
-          this.currentRep = 0;
-          this.phase = 0;
-        } else {
-          return;
-        }
-      }
-    }
-    this.timeLeft = this.getTimeOfCurrentPhase();
+  restart(){
+    this.ts.restart();
   }
 
-  getTimeOfCurrentPhase() {
-    const ex = this.exercises[this.currentExe];
-    switch (this.phase) {
-      case 0:
-        return ex.preparation * 10;
-      case 1:
-        return ex.duration * 10;
-      case 2:
-        return ex.rest * 10;
-    }
+  next(){
+    this.ts.next();
   }
+
 }

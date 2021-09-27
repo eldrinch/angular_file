@@ -1,16 +1,24 @@
-<p>timer works!</p>
-<div [class]="'phase' + phase">
-  <div class="timeLeft">{{ formatTimeLeft(timeLeft) }}</div>
+
+<div [class]="'phase' + ts.phase">
+  <!-- <div class="timeLeft">{{ formatTimeLeft(timeLeft) }}</div> -->
+  <div class="timeLeft">{{ ts.timeLeft/1000| number:'1.1-1' }}</div>
   <div>
-    Exercicio {{ currentExe + 1 }}/{{ this.exercises.length }}:
-    {{ this.exercises[this.currentExe].name }}
+    <!-- Exercicio {{ currentExe + 1 }}/{{ this.exercises.length }}:
+    {{ this.exercises[this.currentExe].name }} -->
+    Exercicio {{ ts.currentExe + 1 }}/{{ this.ts.exercises.length }}:
+    {{ this.ts.exercises[this.ts.currentExe].name }}
   </div>
   <div>
-    Repetição {{ currentRep + 1 }}/{{
+    <!-- Repetição {{ currentRep + 1 }}/{{
       this.exercises[this.currentExe].repetitions
+    }} -->
+    Repetição {{ ts.currentRep + 1 }}/{{
+      this.ts.exercises[this.ts.currentExe].repetitions
     }}
   </div>
-  <div>{{ formatPhase(phase) }}</div>
+  <!-- <div>{{ formatPhase(phase) }}</div> -->
+  <div>{{ formatPhase(ts.phase) }}</div>
+
 </div>
 <div class="tools">
   <button (click)="start()">Iniciar</button>

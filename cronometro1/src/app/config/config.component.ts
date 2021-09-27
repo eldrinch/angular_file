@@ -1,31 +1,34 @@
-import { Component, Input } from '@angular/core';
-import { Exercise } from '../exercise' 
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { TimerService } from '../timer.service';
+
 
 @Component({
   selector: 'app-config',
   templateUrl: './config.component.html',
-  styleUrls: ['./config.component.css']
+  styleUrls: ['./config.component.css'],
 })
 export class ConfigComponent {
+  // @Input() exercises: Exercise[]=[];
 
-  @Input() exercises: Exercise[]=[];
+  exerciseForm = new FormGroup({
+    name: new FormControl('', Validators.required),
+    duration: new FormControl(30, Validators.required),
+    repetitions: new FormControl(3, Validators.required),
+    preparation: new FormControl(15, Validators.required),
+    rest: new FormControl(30, Validators.required),
+  });
 
-  exercise: Exercise = {
-    name: '',
-    duration: 30,
-    repetitions:3,
-    preparation: 15,
-    rest:30
+  constructor(public ts: TimerService) {}
+
+  add() {
+    const exercise = this.exerciseForm.value;
+    // this.exercises.push(this.exercise);
+    this.ts.add(exercise);
+    this.exerciseForm.reset({ ...exercise, name: '' });
   }
 
-  constructor() { }
-  add(){
-    this.exercises.push(this.exercise);
-    this.exercise = { ...this.exercise, name:''};
+  delete(i: number) {
+    this.ts.delete(i);
   }
-
-  delete(i:number){
-    this.exercises.splice(i,1)
-  }
-
 }
