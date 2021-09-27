@@ -29,6 +29,11 @@
       "nome": "testes",
       "preco": 9,
       "id": 9
+    },
+    {
+      "nome": "cau cau",
+      "preco": 25,
+      "id": 10
     }
   ]
 }
