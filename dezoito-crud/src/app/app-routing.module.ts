@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: "contacts", component: ContactListComponent },
   { path: "contacts/create", component: ContactCreateComponent },
   { path: "contacts/:id", component: ContactUpdateComponent },
-  { path: "", redirectTo: "contacts", pathMatch: "full" },
+  { path: '', redirectTo: 'contacts', pathMatch: 'full' },
 ];
 
 @NgModule({

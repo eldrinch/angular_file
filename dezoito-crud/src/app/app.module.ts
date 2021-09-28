@@ -19,8 +19,25 @@ import { ContactUpdateComponent } from './contact-update/contact-update.componen
 import { ContactCreateComponent } from './contact-create/contact-create.component';
 
 @NgModule({
-  declarations: [AppComponent, ContactListComponent, ContactUpdateComponent, ContactCreateComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule, ReactiveFormsModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatIconModule, MatListModule, MatToolbarModule],
+  declarations: [
+    AppComponent, 
+    ContactListComponent, 
+    ContactUpdateComponent, 
+    ContactCreateComponent
+  ],
+  imports: [
+    BrowserModule, 
+    AppRoutingModule, 
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatListModule,
+    MatToolbarModule],
+  
   providers: [],
   bootstrap: [AppComponent],
 })

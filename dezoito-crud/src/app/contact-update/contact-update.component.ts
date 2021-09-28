@@ -29,7 +29,8 @@ export class ContactUpdateComponent implements OnInit {
   }
 
   updateContact() {
-    this.contactsService.updateContact({ id: this.id, ...this.contactForm.value }).subscribe((contact) => {
+    this.contactsService.updateContact({ id: this.id, ...this.contactForm.value })
+    .subscribe((contact) => {
       this.contactForm.reset(contact);
     });
   }

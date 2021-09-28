@@ -12,7 +12,9 @@ const urlBase = "http://localhost:3000";
 @Injectable({
   providedIn: "root",
 })
+
 export class ContactsService {
+  
   constructor(private http: HttpClient) {}
 
   listContacts() {

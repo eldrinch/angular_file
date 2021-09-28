@@ -16,7 +16,16 @@ import { MatTableModule } from "@angular/material/table";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule, ReactiveFormsModule, BrowserAnimationsModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatInputModule, MatToolbarModule, MatTableModule],
+  imports: [BrowserModule, 
+    HttpClientModule, 
+    ReactiveFormsModule, 
+    BrowserAnimationsModule, 
+    MatButtonModule, 
+    MatIconModule, 
+    MatFormFieldModule, 
+    MatInputModule, 
+    MatToolbarModule, 
+    MatTableModule],
   providers: [],
   bootstrap: [AppComponent],
 })
